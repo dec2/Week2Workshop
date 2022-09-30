@@ -22,18 +22,25 @@ plastic_waste <- read_csv("data/plastic-waste.csv")
 *Remove this text, and add your answer for Exercise 1 here.*
 
 ```{r plastic-waste-continent}
-# remove this comment and add the code for Exercise 1 here
+library(ggplot2)
+ggplot(data = plastic_waste, aes(x =  plastic_waste_per_cap)) +
+  geom_histogram(binwidth = 0.2)+
+  facet_wrap(~continent)
 ```
 
 ### Exercise 2
 
 ```{r plastic-waste-density}
-# remove this comment and add the code for Exercise 2 here
+ggplot(data = plastic_waste, 
+       mapping = aes(x = plastic_waste_per_cap, 
+                     color = continent,
+                     fill = continent)) +
+  geom_density(alpha=0.4)
 ```
 
 ### Exercise 3
 
-*Remove this text, and add your answer for Exercise 3 here.*
+The alpha level isn't related to the data itself, so can be fefined as a characteristic of the plotting geometry. Whereas colour and fill are mapping aesthetics. 
 
 ### Exercise 4
 
