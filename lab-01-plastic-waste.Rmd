@@ -96,7 +96,7 @@ p2 <- ggplot(data = plastic_waste,
                      color = continent)) +
   geom_point()
 
-grid.arrange(p1, p2, ncol = 2)
+grid.arrange(p1, p2, nrow = 2)
 ```
 
 ```{r plastic-waste-population-coastal}
@@ -112,6 +112,14 @@ plastic_waste_edit <- plastic_waste %>%
   mutate(coastal_pop_prop = coastal_pop / total_pop) %>%
   filter(plastic_waste_per_cap < 3)
 
-# remove this comment and add the code for Exercise 8 here
+ggplot(data = plastic_waste_edit, 
+       mapping = aes(x = coastal_pop, 
+                     y = plastic_waste_per_cap,
+                     color = continent,
+                     fill = continent)) +
+  geom_point() +
+  geom_smooth()
+
+
 ```
 
